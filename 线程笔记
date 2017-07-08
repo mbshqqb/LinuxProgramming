@@ -1,0 +1,23 @@
+wait()与sleep()
+wait()与僵尸进场
+pthread_join(pthread_t)//等待线程结束后执行下一条代码
+pthread_create()
+
+pthread_mutex_t lock=PTHREAD_MUTEX_INITIALIZER;
+pthread_mutex_lock(&lock);
+pthread_mutex_ulock(&lock);
+pthread_cond_t flag=PTHREAD_COND_INITIALIZER;
+pthread_cond_signal(&flag)
+pthread_cond_wait(&flag,&lock)//等待flag的值发生改变，lock表示强制改变
+
+void* print(void*argv){//返回值为void*
+    printf("******");
+}
+int pthread_create(pthread_t *thread, const pthread_attr_t *attr,
+                          void *(*start_routine) (void *), void *arg);
+
+同步与虎刺
+
+注意：当一个进程产生的多个线程中有一个线程出现问题时该进程结束，与Java中不同
+    wait()与pthread_join()的区别：
+    pthread_detach(pthread_self());//将线程自己变成一个独立的线程

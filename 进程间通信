@@ -1,0 +1,3 @@
+异步非阻塞IO Asynchrononous Non-blocking I/O
+:同时读多个I有数据O，假设为1,2,3，当某个IO有数据时，进行读取，当没有数据时，轮训查看哪个IO有数据
+select();//nfds要扫描的文件描述符的范围的最大值

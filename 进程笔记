@@ -1,0 +1,32 @@
+1.ps -e -l
+    F S   UID   PID  PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+    0 状态 UID   PIP  父进程PID
+    状态：s:sleep状态  T：挂起状态 Z:僵尸进程
+
+2.fork()函数
+    a.fork:子进程会从父进程fork之后的代码
+        eg:
+        fork;fork();fork();printf("e");会打印出8个e
+
+    b.fork返回值为子进程PID，子进程返回值为0
+        eg:
+            int rv;
+            rv=fork();
+            printf("I am %d,rv=%d\n",getpid(),rv);//词句会输出两次，但两次内容不同
+            输出：
+            I am 2746,rv=2747
+            I am 2747,rv=0
+3.判断一个进程是子进程还是父进程
+    根据fork()的返回值来看
+
+4.打开一个可执行文件
+    eg:
+        char*argv[]={"ls","/",NULL};
+        printf("want to exe!\n");
+        execv("ls",argv);//将ls的代码段拷贝到自己的代码段，ls进场执行结束后该进程也会结束，后面的代码不会执行
+        printf("Finished!\n");//此句不会执行
+    eg:fork和execv一起使用
+5.wait()
+    pid_t wait(int *status);//，若不需要子进程的状态，则可以将status设置为NULL，status为要等待的子进程的进程号的状态,为一个16为的数，前8位为子进程exit的返回值，后7位为signal子进程结束的原因,即子进程是被几号信号杀的
+
+

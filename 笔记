@@ -1,0 +1,21 @@
+修改内核的设置：
+int fcntl(int fd, int cmd, ... /* arg */ );
+回显：能看到终端写的字符，按回车执行
+stty:set tty所有的
+stty -a:查看
+eg:setty erase x:将退格设置成x,原来的为^?,即ctrl+?
+stty -echo:设置不回显，不用按回车
+man tcgetattr
+或操作：置  如将0010 0110的第四为置1，则 0010 0110|0001 0000
+取反与：取消
+
+信号：软中断
+man 2 signal
+查看进程：ps 或 top
+sighandler_t signal(int signum, sighandler_t handler);//第二个参数为函数指针
+man 7 signal
+注意：The signals SIGKILL and SIGSTOP cannot be caught, blocked, or ignored.
+
+函数指针：int (*p)(int,int);
+
+lib

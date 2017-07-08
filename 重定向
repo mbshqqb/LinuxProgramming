@@ -1,0 +1,25 @@
+重定向：
+流1>流2
+流1<流2
+cat foo.txt > bar.txt  相当于 cat foo.txt 1> bar.txt
+man execv
+man execlp
+追加：
+流1>>流2
+流1 |tee -a 流2
+cat foo.txt >> bar.txt
+cat foo.txt |fee -a bar.txt
+
+管道：
+先说标准输:0,1,2,0号输入，1号输出
+man pipe:
+man dup:
+dup
+pip系统调用后会产生两个输入输出流，
+    eg: 使用管道前：A的输入B的输出 C的输入D的输出     使用管道后：A的输入D的输出
+终端命令：使用|
+    eg:ls |more 分屏显示
+        ls |grep xxxstr ls的过滤
+        find .|grep xxxstr  查找过滤
+        cat xxx.txt|wc   统计单词
+        cat xxx.txt|sort  排序  同sort>xxx.txt
